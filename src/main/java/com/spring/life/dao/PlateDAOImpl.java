@@ -17,7 +17,6 @@ public class PlateDAOImpl implements PlateDAO{
     private SessionFactory sessionFactory;
 
     @Override
-    @Transactional
     public List<Plate> getPlates() {
 
         // get the current hibernate session
@@ -33,5 +32,24 @@ public class PlateDAOImpl implements PlateDAO{
         // return the results
         return plates;
     }
+
+    @Override
+    public void savePlate(Plate thePlate) {
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        currentSession.saveOrUpdate(thePlate);
+    }
+
+    @Override
+    public Plate getPlate(int theId) {
+
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        Plate thePlate = currentSession.get(Plate.class, theId);
+
+        return thePlate;
+    }
+
+
 }
 

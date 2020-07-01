@@ -1,10 +1,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
+<html lang="ko">
 
-<html>
 
 <head>
+	<meta charset="utf-8">
 	<title>List Customers</title>
 
 </head>
@@ -21,24 +22,36 @@
 	
 		<div id="content">
 		
-			<!--  add our html table here -->
+		<input type="button" value="Add plate"
+					onclick ="location.href='add'; return false;" />
+
+
 		
 			<table>
 				<tr>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Email</th>
+					<th>주제</th>
+					<th>소주제</th>
+					<th>서문</th>
+					<th>날짜</th>
+					<th>업데이트</th>
 				</tr>
 				
 				<!-- loop over and print our customers -->
-				<c:forEach var="tempCustomer" items="${plates}">
-				
+				<c:forEach var="tempplates" items="${plates}">
+
+					<c:url var="updateLink" value="/plate/update">
+						<c:param name="plateId" value="${tempplates.id}"/>
+					</c:url>
+
+
 					<tr>
-						<td> ${tempCustomer.kind} </td>
-						<td> ${tempCustomer.kind_think} </td>
-						<td> ${tempCustomer.intro} </td>
-						<td> ${tempCustomer.main_text} </td>
-						<td> ${tempCustomer.date} </td>
+						<td> ${tempplates.kind} </td>
+						<td> ${tempplates.kind_think} </td>
+						<td> ${tempplates.intro} </td>
+						<td> ${tempplates.date} </td>
+						<td>
+							<a href="${updateLink}">update</a>
+						</td>
 					</tr>
 				
 				</c:forEach>
