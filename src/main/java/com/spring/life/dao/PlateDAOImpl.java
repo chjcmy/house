@@ -50,6 +50,18 @@ public class PlateDAOImpl implements PlateDAO{
         return thePlate;
     }
 
+    @Override
+    public void deletePlate(int theId) {
+
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        Query theQuery =
+                currentSession.createQuery("delete from Plate where id=:plateId");
+        theQuery.setParameter("plateId", theId);
+
+        theQuery.executeUpdate();
+    }
+
 
 }
 

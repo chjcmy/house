@@ -11,4 +11,6 @@ public interface PlateService {
     public void savePlate(Plate thePlate);
 
     public Plate getPlate(int theId);
+
+    public void deletePlate(int theId);
 }

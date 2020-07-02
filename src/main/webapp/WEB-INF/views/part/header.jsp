@@ -1,0 +1,113 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: chjcm
+  Date: 2020-07-02
+  Time: 오후 4:01
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<header id="header">
+    <div class="container">
+        <div class="row">
+            <div class="header">
+                <div class="header_menu">
+                    <a href="/user/login">로그인</a>
+                        </div>
+
+                </div>
+                <!-- //header_menu -->
+                <div class="header_tit">
+                    <h1>힘, 그리고 공포! 이게, 내 무기지!</h1><br>
+                    <a href="https://kr.leagueoflegends.com/ko-kr/champions/urgot/">우르곳</a>
+                </div>
+                <!-- //header_tit -->
+                <div class="header_icon">
+                    <ul>
+                        <li><a href="/plate/list"><i class="fab fa-java" aria-hidden="true"></i><span>JAVA</span></a></li>
+                        <li><a href="#"><i class="fab fa-google" aria-hidden="true"></i><span>GO</span></a></li>
+                        <li><a href="#"><i class="fab fa-google-play" aria-hidden="true"></i><span>KOTLIN</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<nav id="nav">
+    <div class="container">
+        <div class="row">
+            <div class="nav">
+                <h2 class="ir_su">반응형 사이트 전체 메뉴</h2>
+                <div>
+                    <h3>JAVA</h3>
+                    <ol>
+                        <li><a href="#">HTML 태그(Tag)</a></li>
+
+                    </ol>
+                </div>
+                <div>
+                    <h3>GO</h3>
+                    <ol>
+                        <li><a href="#">CSS 선택자</a></li>
+
+                    </ol>
+                </div>
+                <div class="last">
+                    <h3>KOTLIN</h3>
+                    <ol>
+                        <li><a href="#">웹 표준</a></li>
+
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- nav -->
+
+<article id="title">
+    <div class="container">
+        <div class="title">
+            <h2>"나는 우르곳이다"</h2>
+            <a href="#" class="btn">
+                <i class="fas fa-chess-knight" aria-hidden="true"></i>
+                <span class="ir_su">전체메뉴 보기</span>
+            </a>
+        </div>
+    </div>
+</article>
+<script>
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>

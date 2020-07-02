@@ -30,6 +30,13 @@ public class PlateServiceImpl implements PlateService{
     @Override
     @Transactional
     public Plate getPlate(int theId) {
+
         return plateDAO.getPlate(theId);
+    }
+
+    @Override
+    @Transactional
+    public void deletePlate(int theId) {
+          plateDAO.deletePlate(theId);
     }
 }

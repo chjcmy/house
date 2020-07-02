@@ -12,8 +12,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="webstoryboy">
-    <meta name="description" content="반응형 사이트 따라하기">
-    <meta name="keywords" content="반응형사이트, 웹퍼블리셔, 웹접근성, HTML5, webstoryboy, webs">
+    <meta name="description" content="우르곳은 제왕">
+    <meta name="keywords" content="반응형사이트, 자바, 손흥민, 블랙핑크, 코틀린, 고, go, kotlin, spring, spring mvc, webs">
     <title>반응형 사이트 만들기 : 아웃 라이너</title>
 
     <!-- style -->
@@ -60,173 +60,13 @@
 
 <body>
 
-<header id="header">
-    <div class="container">
-        <div class="row">
-            <div class="header">
-                <div class="header_menu">
-                    <a href="#">로그인</a>
-
-                </div>
-                <!-- //header_menu -->
-                <div class="header_tit">
-                    <h1>힘, 그리고 공포! 이게, 내 무기지!</h1><br>
-                    <a href="https://kr.leagueoflegends.com/ko-kr/champions/urgot/">우르곳</a>
-                </div>
-                <!-- //header_tit -->
-                <div class="header_icon">
-                    <ul>
-                        <li><a href="/plate/list"><i class="fab fa-java" aria-hidden="true"></i><span>JAVA</span></a></li>
-                        <li><a href="#"><i class="fab fa-google" aria-hidden="true"></i><span>GO</span></a></li>
-                        <li><a href="#"><i class="fab fa-google-play" aria-hidden="true"></i><span>KOTLIN</span></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<nav id="nav">
-    <div class="container">
-        <div class="row">
-            <div class="nav">
-                <h2 class="ir_su">반응형 사이트 전체 메뉴</h2>
-                <div>
-                    <h3>JAVA</h3>
-                    <ol>
-                        <li><a href="#">HTML 태그(Tag)</a></li>
-                        <li><a href="#">블록 요소/인라인 요소</a></li>
-                        <li><a href="#">DTD 선언</a></li>
-                        <li><a href="#">언어 속성 설정</a></li>
-                        <li><a href="#">HTML &lt;title&gt;</a></li>
-                        <li><a href="#">HTML &lt;meta&gt;</a></li>
-                        <li><a href="#">특수문자</a></li>
-                        <li><a href="#">하이퍼 링크</a></li>
-                        <li><a href="#">HTML &lt;style&gt;</a></li>
-                        <li><a href="#">HTML &lt;html&gt;</a></li>
-                        <li><a href="#">HTML &lt;head&gt;</a></li>
-                        <li><a href="#">HTML &lt;div&gt;</a></li>
-                        <li><a href="#">HTML &lt;colgroup&gt;</a></li>
-                        <li><a href="#">HTML &lt;caption&gt;</a></li>
-                    </ol>
-                </div>
-                <div>
-                    <h3>GO</h3>
-                    <ol>
-                        <li><a href="#">CSS 선택자</a></li>
-                        <li><a href="#">CSS 단위</a></li>
-                        <li><a href="#">CSS 색상</a></li>
-                        <li><a href="#">CSS 선언 방법</a></li>
-                        <li><a href="#">상대주소와 절대주소</a></li>
-                        <li><a href="#">CSS float</a></li>
-                        <li><a href="#">이미지 표현 방법</a></li>
-                        <li><a href="#">이미지 스프라이트</a></li>
-                        <li><a href="#">IR 효과</a></li>
-                        <li><a href="#">이미지 최적화</a></li>
-                        <li><a href="#">background-color</a></li>
-                        <li><a href="#">border-style</a></li>
-                        <li><a href="#">font-size</a></li>
-                        <li><a href="#">text-align</a></li>
-                    </ol>
-                </div>
-                <div class="last">
-                    <h3>KOTLIN</h3>
-                    <ol>
-                        <li><a href="#">웹 표준</a></li>
-                        <li><a href="#">웹 접근성</a></li>
-                        <li><a href="#">W3C</a></li>
-                        <li><a href="#">웹 접근성 연구소</a></li>
-                        <li><a href="#">네이버 널리</a></li>
-                        <li><a href="#">다음 다룸</a></li>
-                        <li><a href="#">Webstandard</a></li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
-</nav>
-<!-- nav -->
-
-<article id="title">
-    <div class="container">
-        <div class="title">
-            <h2>"나는 우르곳이다"</h2>
-            <a href="#" class="btn">
-                <i class="fas fa-chess-knight" aria-hidden="true"></i>
-                <span class="ir_su">전체메뉴 보기</span>
-            </a>
-        </div>
-    </div>
-</article>
-<!-- //title -->
+<jsp:include page="part/header.jsp"></jsp:include>
 
 <main>
     <section id="contents">
         <div class="container">
             <h2 class="ir_su">반응형 사이트 컨텐츠</h2>
-            <section id="cont_left">
-                <!-- // -->
-                <article class="column col1">
-                    <h4 class="col_tit">Menu</h4>
-                    <!-- 메뉴 -->
-                    <div class="menu">
-                        <ul>
-                            <li><a href="#">JAVA <i class="fab fa-java" aria-hidden="true"></i></a></li>
-                            <li><a href="#">GO <i class="fab fa-google" aria-hidden="true"></i></a></li>
-                            <li><a href="#">KOTLIN <i class="fab fa-google-play" aria-hidden="true"></i></a></li>
-                            <li><a href="#">HTML5 <i class="fab fa-html5" aria-hidden="true"></i></a></li>
-                            <li><a href="#">CSS3 <i class="fab fa-css3-alt" aria-hidden="true"></i></a></li>
-                            <li><a href="#">일상생활 <i class="fas fa-walking" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>
-                    <!-- //메뉴 -->
-                </article>
-
-                <!-- // -->
-                <article class="column col2">
-                    <h4 class="col_tit">Notice</h4>
-                    <p class="col_desc">게시판영역의 한줄 효과와 두줄 효과 게시판입니다</p>
-                    <!-- 게시판 -->
-                    <div class="notice1">
-                        <h5>Notice1</h5>
-                        <ul>
-                            <li><a href="#">이줄은 한줄 효과입니다</a></li>
-                            <li><a href="#">이줄은 한줄 효과입니다</a></li>
-                            <li><a href="#">이줄은 한줄 효과입니다</a></li>
-                            <li><a href="#">이줄은 한줄 효과입니다</a></li>
-                        </ul>
-                        <a href="#" class="more" title="더 보기">More<i class="fa fa-plus-circle" aria-hidden="true"></i></a>
-                    </div>
-                    <!-- //게시판 -->
-                </article>
-                <!-- //col2 -->
-
-                <article class="column col3">
-                    <h4 class="col_tit">Blog</h4>
-                    <p class="col_desc">해상도에 따라 이미지를 다르게 표현하는 방법입니다.</p>
-                    <!-- blog1-->
-                    <div class="blog1">
-                        <h5 class="ir_su">image1</h5>
-                        <figure>
-                            <img src="${pageContext.request.contextPath}/resources/img/blog1_@1.jpg" class="img-normal" alt="normal image">
-                            <img src="${pageContext.request.contextPath}/resources/img/blog1_@2.jpg" class="img-retina" alt="retina image" width="100%">
-                            <!--<img src="img/blog2_@1.jpg" srcset="img/blog2_@1.jpg 1x, img/blog2_@2.jpg 2x" alt="normal image"> -->
-                            <figcaption>반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다.</figcaption>
-                        </figure>
-                    </div>
-                    <!-- //blog1 -->
-                    <!-- blog2-->
-                    <div class="blog2">
-                        <h5 class="ir_su">image2</h5>
-                        <figure>
-                            <img src="${pageContext.request.contextPath}/resources/img/blog2_@1.jpg" srcset="${pageContext.request.contextPath}/resources/img/blog2_@1.jpg 1x, img/blog2_@2.jpg 2x" alt="normal image">
-                            <figcaption>반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다.</figcaption>
-                        </figure>
-                    </div>
-                    <!-- //blog2 -->
-                </article>
-                <!-- //col3 -->
-            </section>
+            <jsp:include page="part/left_side.jsp"></jsp:include>
             <section id="cont_center">
                 <h3 class="ir_su">반응형 사이트 가운데 컨텐츠</h3>
                 <article class="column col4">
@@ -284,42 +124,12 @@
                 </article>
                 <!-- //col6 -->
             </section>
-            <section id="cont_right">
-                <h3 class="ir_su">반응형 사이트 오른쪽 컨텐츠</h3>
-                <article class="column col7">
-                    <h4 class="col_tit">Title</h4>
-                    <p class="col_desc">이 곳은 설명 부분입니다.</p>
-                    <!-- -->
-
-                    <!-- // -->
-                </article>
-                <!-- //col7 -->
-                <article class="column col8">
-                    <h4 class="col_tit">Title</h4>
-                    <p class="col_desc">이 곳은 설명 부분입니다.</p>
-                    <!-- -->
-
-                    <!-- // -->
-                </article>
-                <!-- //col8 -->
-                <article class="column col9">
-                    <h4 class="col_tit">Title</h4>
-                    <p class="col_desc">이 곳은 설명 부분입니다.</p>
-                    <!-- -->
-
-                    <!-- // -->
-                </article>
-                <!-- //col9 -->
-            </section>
+           <jsp:include page="part/right_side.jsp" />
         </div>
     </section>
     <!-- //contents -->
 </main>
-<footer id="footer">
-    <div class="container">
-        <h2>반응형 사이트 푸터</h2>
-    </div>
-</footer>
+<jsp:include page="part/footer.jsp" />
 <!-- //footer -->
 
 <!-- JavaScript Libraries -->
