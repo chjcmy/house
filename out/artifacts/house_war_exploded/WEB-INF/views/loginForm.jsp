@@ -65,22 +65,6 @@
                     <p class="col_desc">보고 싶은걸 보자</p>
                     <div class="login-box-body">
                         <p class="login-box-msg">로그인 페이지</p>
-                        <form:form role="form" commandName="loginCommand" action="/login" method="post">
-                        <fieldset>
-                            <div class="form-group">
-                                <form:input type="text" class="form-control" placeholder="ID" path="id"/>
-                            </div>
-                            <div class="form-group">
-                                <form:password class="form-control" placeholder="Password" path="pw"/>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <form:checkbox path="rememberId"/>아이디 기억
-                                </label>
-                            </div>
-                            <button type="submit" class="btn btn-lg btn-success btn-block">로그인</button>
-                        </fieldset>
-                        </form:form>
                 </article>
             </section>
             <jsp:include page="part/right_side.jsp" />

@@ -63,25 +63,52 @@
 				<article class="column col4">
 					<h4 class="col_tit">Menu</h4>
 					<p class="col_desc">보고 싶은걸 보자</p>
-					<div class="panel-body">
-						<form:form role="form" commandName="LoginCommand" action="/login" method="post">
-							<fieldset>
-								<div class="form-group">
-									<form:input type="text" class="form-control" placeholder="ID" path="id"/>
-									<form:errors path="id"/>
-								</div>
-								<div class="form-group">
-									<form:password class="form-control" placeholder="Password" path="pw"/>
-									<form:errors path="pw"/>
-								</div>
-								<div class="checkbox">
-									<label>
-										<form:checkbox path="rememberId"/>아이디 기억
-									</label>
-								</div>
-								<button type="submit" class="btn btn-lg btn-success btn-block">로그인</button>
-							</fieldset>
-						</form:form>
+
+					<div id="container">
+
+						<div id="content">
+
+							<input type="button" value="Add plate"
+								   onclick ="location.href='add'; return false;" />
+
+
+
+							<table>
+								<tr>
+									<th>주제</th>
+									<th>소주제</th>
+									<th>서문</th>
+									<th>날짜</th>
+									<th>업데이트</th>
+								</tr>
+
+								<!-- loop over and print our customers -->
+								<c:forEach var="tempplates" items="${plates}">
+
+									<c:url var="updateLink" value="/plate/update">
+										<c:param name="plateId" value="${tempplates.id}"/>
+									</c:url>
+									<c:url var="deleteLink" value="/plate/delete">
+									<c:param name="plateId" value="${tempplates.id}"/>
+								</c:url>
+
+
+									<tr>
+										<td> ${tempplates.kind} </td>
+										<td> ${tempplates.kind_think} </td>
+										<td> ${tempplates.intro} </td>
+										<td> ${tempplates.date} </td>
+										<td>
+											<a href="${updateLink}">update</a>
+											|
+											<a href="${deleteLink}">delete</a>
+										</td>
+									</tr>
+
+								</c:forEach>
+
+							</table>
+
 					</div>
 				</article>
 			</section>
