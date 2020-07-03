@@ -65,26 +65,22 @@
                     <p class="col_desc">보고 싶은걸 보자</p>
                     <div class="login-box-body">
                         <p class="login-box-msg">로그인 페이지</p>
-
-                        <form action="${path}/user/loginPost" method="post">
-                            <div class="form-group has-feedback">
-                                <input type="text" name="userId" class="form-control" placeholder="아아디">
-                                <span class="glyphicon glyphicon-exclamation-sign form-control-feedback"></span>
+                        <form:form role="form" commandName="loginCommand" action="/login" method="post">
+                        <fieldset>
+                            <div class="form-group">
+                                <form:input type="text" class="form-control" placeholder="ID" path="id"/>
                             </div>
-                            <div class="form-group has-feedback">
-                                <input type="password" name="userPw" class="form-control" placeholder="비밀번호">
-                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                            <div class="form-group">
+                                <form:password class="form-control" placeholder="Password" path="pw"/>
                             </div>
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <button type="submit" class="btn btn-primary btn-block btn-flat">
-                                        <i class="fa fa-sign-in"></i> 로그인
-                                    </button>
-                                </div>
-                                <!-- /.col -->
+                            <div class="checkbox">
+                                <label>
+                                    <form:checkbox path="rememberId"/>아이디 기억
+                                </label>
                             </div>
-                        </form>
-                    </div>
+                            <button type="submit" class="btn btn-lg btn-success btn-block">로그인</button>
+                        </fieldset>
+                        </form:form>
                 </article>
             </section>
             <jsp:include page="part/right_side.jsp" />
