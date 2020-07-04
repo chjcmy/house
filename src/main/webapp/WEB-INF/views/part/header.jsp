@@ -18,7 +18,7 @@
         <div class="row">
             <div class="header">
                 <div class="header_menu">
-                    <a href="/user/signin">로그인</a>
+                    <a href="/user/login">로그인</a>
                         </div>
 
                 </div>
