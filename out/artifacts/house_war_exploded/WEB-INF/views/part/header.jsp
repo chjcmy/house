@@ -18,9 +18,23 @@
         <div class="row">
             <div class="header">
                 <div class="header_menu">
-                    <a href="/user/login">로그인</a>
-                        </div>
-
+                    <c:catch>
+                        <c:choose>
+                            <c:when test="${empty authInfo }">
+                                <li>
+                                    <a href="/user/login"><i class="fa fa-sign-in"></i> 로그인</a>
+                                </li>
+                            </c:when>
+                                    <c:otherwise>
+                                        <li>
+                                            <p>${authInfo.name }님, 반갑습니다!</p>
+                                        </li>
+                                        <li>
+                                            <a href="/logout"><i class="fa fa-sign-out"></i> 로그아웃</a>
+                                        </li>
+                                    </c:otherwise>
+                                </c:choose>
+                    </c:catch>
                 </div>
                 <!-- //header_menu -->
                 <div class="header_tit">
