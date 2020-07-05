@@ -1,16 +1,18 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: chjcm
-  Date: 2020-07-02
-  Time: 오후 4:01
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#logoutBtn").on("click", function(){
+                location.href="user/logout";
+            })
+
+        })
+    </script>
 </head>
 <body>
 <header id="header">
@@ -18,23 +20,19 @@
         <div class="row">
             <div class="header">
                 <div class="header_menu">
-                    <c:catch>
-                        <c:choose>
-                            <c:when test="${empty authInfo }">
-                                <li>
-                                    <a href="/user/login"><i class="fa fa-sign-in"></i> 로그인</a>
-                                </li>
-                            </c:when>
-                                    <c:otherwise>
-                                        <li>
-                                            <p>${authInfo.name }님, 반갑습니다!</p>
-                                        </li>
-                                        <li>
-                                            <a href="/logout"><i class="fa fa-sign-out"></i> 로그아웃</a>
-                                        </li>
-                                    </c:otherwise>
-                                </c:choose>
-                    </c:catch>
+                    <form method="post" action="/user/loginform">
+                    <c:if test="${user == null}">
+                        <a href="/user/loginform">로그인</a>
+                    </c:if>
+                    <c:if test="${user != null }">
+                        <div>
+                            <c:forEach var="user" items="${user}">
+                            <p> ${user.user_id}</p>
+                                <button id="logoutBtn" type="button">logout</button>
+                            </c:forEach>
+                        </div>
+                    </c:if>
+                    </form>
                 </div>
                 <!-- //header_menu -->
                 <div class="header_tit">

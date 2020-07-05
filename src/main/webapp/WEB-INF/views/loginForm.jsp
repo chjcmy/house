@@ -66,22 +66,30 @@
                     <div class="login-box-body">
                         <p class="login-box-msg">로그인 페이지</p>
                         <div class="panel-body">
-                            <form:form role="form" modelAttribute="login" action="login" method="post">
-                                <fieldset>
-                                    <div class="form-group">
-                                        <form:input type="text" placeholder="Id" path="id"/>
+                            <form name='homeForm' method="Post" action="/user/login">
+                                <c:if test="${user == null}">
+                                    <div>
+                                        <label for="user_id"></label>
+                                        <input type="text" id="user_id" name="user_id">
                                     </div>
-                                    <div class="form-group">
-                                        <form:password  placeholder="Password" path="pw"/>
+                                    <div>
+                                        <label for="user_pass"></label>
+                                        <input type="password" id="user_pass" name="user_pass">
                                     </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <form:checkbox path="rememberId"/>아이디 기억
-                                        </label>
+                                    <div>
+                                        <button type="submit">로그인</button>
                                     </div>
-                                    <button type="submit" >로그인</button>
-                                </fieldset>
-                            </form:form>
+                                </c:if>
+                                <c:if test="${user != null }">
+                                    <div>
+                                        <p>${user.user_Id}님 환영 합니다.</p>
+                                        <button id="logoutBtn" type="button">로그아웃</button>
+                                    </div>
+                                </c:if>
+                                <c:if test="${msg == false}">
+                                    <p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
+                                </c:if>
+                            </form>
                 </article>
             </section>
             <jsp:include page="part/right_side.jsp" />
