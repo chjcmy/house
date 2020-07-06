@@ -513,7 +513,7 @@
 .video iframe {position: absolute; width: 100%; height: 100%;}
 
 /* 테이블 */
-table.plate {
+table.plate-table {
     border-collapse: collapse;
     text-align: left;
     line-height: 1.5;
@@ -521,15 +521,15 @@ table.plate {
     margin: 20px 10px;
 }
 
-table.plate thead th {
+table.plate-table thead th {
     padding: 10px;
     font-weight: bold;
     border-top: 1px solid #ccc;
     border-right: 1px solid #ccc;
-    border-bottom: 2px solid #c00;
+    border-bottom: 2px solid #ccc;
     background: #dcdcd1;
 }
-table.plate tbody th {
+table.plate-table tbody th {
     width: 150px;
     padding: 10px;
     font-weight: bold;
@@ -538,7 +538,7 @@ table.plate tbody th {
     border-bottom: 1px solid #ccc;
     background: #ececec;
 }
-table.plate td {
+table.plate-table td {
     width: 350px;
     padding: 10px;
     vertical-align: top;
@@ -546,41 +546,37 @@ table.plate td {
     border-bottom: 1px solid #ccc;
 }
 
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+table.maintext {
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin: 20px 10px;
+}
+table.maintext thead th {
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #fff;
+    background: #461c10;
+    margin: 20px 10px;
+}
+table.maintext tbody th {
+    width: 150px;
+    padding: 10px;
+}
+table.maintext td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+}
+table.maintext .even {
+    background: #E6DACC;
 }
 
-/* Modal Content/Box */
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 50%; /* Could be more or less, depending on screen size */
-}
-/* The Close Button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
+
 /* media query*/
 /* 화면 너비 0 ~ 1220px */
 @media (max-width: 1220px) {

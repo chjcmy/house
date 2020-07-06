@@ -5,11 +5,13 @@ import com.spring.life.entity.Plate;
 import java.util.List;
 
 public interface PlateDAO {
-    public List<Plate> getPlates();
+    List<Plate> getPlates();
 
-    public void savePlate(Plate thePlate);
+    void savePlate(Plate thePlate);
 
-    public Plate getPlate(int theId);
+    Plate getPlate(int theId);
 
-    public void deletePlate(int theId);
+    void deletePlate(int theId);
+
+    List<Plate> selectPlate(int theId);
 }

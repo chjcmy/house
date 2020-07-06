@@ -39,4 +39,11 @@ public class PlateServiceImpl implements PlateService{
     public void deletePlate(int theId) {
           plateDAO.deletePlate(theId);
     }
+
+    @Override
+    @Transactional
+    public List<Plate> selectPlate(int theId) {
+        return plateDAO.selectPlate(theId);
+    }
+
 }

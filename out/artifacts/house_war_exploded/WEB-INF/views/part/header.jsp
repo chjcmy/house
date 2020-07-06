@@ -5,14 +5,7 @@
 <head>
     <title>Title</title>
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $("#logoutBtn").on("click", function(){
-                location.href="user/logout";
-            })
 
-        })
-    </script>
 </head>
 <body>
 <header id="header">
@@ -28,7 +21,7 @@
                         <div>
                             <c:forEach var="user" items="${user}">
                             <p> ${user.user_id}</p>
-                                <button id="logoutBtn" type="button">logout</button>
+                                <a href="/user/logout">로그아웃</a>
                             </c:forEach>
                         </div>
                     </c:if>
@@ -86,7 +79,7 @@
 <article id="title">
     <div class="container">
         <div class="title">
-            <h2>"나는 우르곳이다"</h2>
+            <h2>"지식이 부족하기 때문에 발전 하는 개발자"</h2>
             <a href="#" class="btn">
                 <i class="fas fa-chess-knight" aria-hidden="true"></i>
                 <span class="ir_su">전체메뉴 보기</span>

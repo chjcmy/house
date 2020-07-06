@@ -2,6 +2,7 @@ package com.spring.life.controller;
 
 import com.spring.life.entity.Plate;
 import com.spring.life.service.PlateService;
+import org.hibernate.Criteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -66,5 +67,13 @@ public class PlateController {
 
     }
 
+    @GetMapping("/select")
+    public String selectMain(@RequestParam("plateId") int theId, Model theModel) {
+
+        List<Plate> mainplates = plateService.selectPlate(theId);
+
+        theModel.addAttribute("mainplate", mainplates);
+        return "mainText";
+    }
 
 }

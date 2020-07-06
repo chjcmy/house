@@ -61,6 +61,34 @@ public class PlateDAOImpl implements PlateDAO{
         theQuery.executeUpdate();
     }
 
+    @Override
+    public List<Plate> selectPlate(int theId) {
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        Query theQuery = null;
+
+        //
+        // only search by name if theSearchName is not empty
+        //
+        if (theId != 0) {
+
+            // search for firstName or lastName ... case insensitive
+            theQuery =currentSession.createQuery("from Plate where id=:plateId ", Plate.class);
+            theQuery.setParameter("plateId", theId);
+
+        }
+        else {
+            // theSearchName is empty ... so just get all customers
+            theQuery =currentSession.createQuery("from plate", Plate.class);
+        }
+
+        // execute query and get result list
+        List<Plate> mainplate = theQuery.getResultList();
+
+        // return the results
+        return mainplate;
+    }
+
 
 }
 
