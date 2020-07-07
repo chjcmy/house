@@ -79,7 +79,7 @@ public class PlateDAOImpl implements PlateDAO{
         }
         else {
             // theSearchName is empty ... so just get all customers
-            theQuery =currentSession.createQuery("from plate", Plate.class);
+            theQuery =currentSession.createQuery("from Plate", Plate.class);
         }
 
         // execute query and get result list
