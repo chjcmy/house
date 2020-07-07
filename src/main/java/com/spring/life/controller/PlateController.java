@@ -3,11 +3,9 @@ package com.spring.life.controller;
 import com.spring.life.entity.Plate;
 import com.spring.life.service.PlateService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -19,34 +17,13 @@ public class PlateController {
     private PlateService plateService;
 
     @GetMapping("/list")
-    public ModelAndView saylist(Model theModel, Integer page) {
-
-        ModelAndView modelAndView = new ModelAndView("table");
+    public String saylist(Model theModel, Integer page) {
 
         // get customers from the dao
         List<Plate> thePlates = plateService.getPlates();
-
-        PagedListHolder<Plate> pagedListHolder = new PagedListHolder<>(thePlates);
-        pagedListHolder.setPageSize(10);
-        modelAndView.addObject("maxPages", pagedListHolder.getPageCount());
-
-        if(page==null || page < 1 || page > pagedListHolder.getPageCount())page=1;
-
-        modelAndView.addObject("page", page);
-        if(page == null || page < 1 || page > pagedListHolder.getPageCount()){
-            pagedListHolder.setPage(0);
-            modelAndView.addObject("users", pagedListHolder.getPageList());
-        }
-        else if(page <= pagedListHolder.getPageCount()) {
-            pagedListHolder.setPage(page-1);
-            modelAndView.addObject("users", pagedListHolder.getPageList());
-        }
-
-
-        // add the customers to the model
         theModel.addAttribute("plates", thePlates);
 
-        return modelAndView;
+        return "table";
     }
 
 

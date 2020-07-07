@@ -75,7 +75,7 @@
                                     <th scope="cols">날짜</th>
                                     <div>
                                         <c:forEach var="user" items="${user}">
-                                            <th scope="cols">업데이트</th>
+                                            <th scope="cols">업데이트 | 삭제</th>
                                         </c:forEach>
                                     </div>
                                 </tr>
@@ -115,25 +115,35 @@
                                 </c:forEach>
 
                             </table>
-                            <div class="box-footer clearfix">
-                                <ul class="pagination pagination-sm no-margin pull-right">
+                            <div id="pagination">
 
-                                    <li th:if="${pageMaker.prev} == true">
-                                        <a th:href="@{/samplehome/board/listPage(page=${pageMaker.startPage}-1,perPageNum=${pageMaker.cri.perPageNum})}">&laquo;</a>
-                                    </li>
+                                <c:url value="/plate/list" var="prev">
+                                    <c:param name="page" value="${page-1}"/>
+                                </c:url>
+                                <c:if test="${page > 1}">
+                                    <a href="<c:out value="${prev}" />" class="pn prev">Prev</a>
+                                </c:if>
 
-                                    <li th:each="idx,iterStat : ${#numbers.sequence(pageMaker.startPage,pageMaker.endPage)}"  th:classappend="${pageMaker.cri.page} == ${idx} ? active : null">
-                                        <a th:href="@{/samplehome/board/listPage(page=${idx},perPageNum=${pageMaker.cri.perPageNum})}" th:text="${idx}"></a>
-                                    </li>
-
-                                    <li th:if="${pageMaker.next} == true and ${pageMaker.endPage > 0}">
-                                        <a th:href="@{/samplehome/board/listPage(page=${pageMaker.endPage}+1,perPageNum=${pageMaker.cri.perPageNum})}">&raquo;</a>
-                                    </li>
-
-                                </ul>
-
+                                <c:forEach begin="1" end="${maxPages}" step="1" varStatus="i">
+                                    <c:choose>
+                                        <c:when test="${page == i.index}">
+                                            <span>${i.index}</span>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <c:url value="/plate/list" var="url">
+                                                <c:param name="page" value="${i.index}"/>
+                                            </c:url>
+                                            <a href='<c:out value="${url}" />'>${i.index}</a>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
+                                <c:url value="/plate/list" var="next">
+                                    <c:param name="page" value="${page + 1}"/>
+                                </c:url>
+                                <c:if test="${page + 1 <= maxPages}">
+                                    <a href='<c:out value="${next}" />' class="pn next">Next</a>
+                                </c:if>
                             </div>
-                    </div>
                 </article>
             </section>
             <jsp:include page="part/right_side.jsp"/>

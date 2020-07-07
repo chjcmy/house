@@ -75,7 +75,7 @@
                                     <th scope="cols">날짜</th>
                                     <div>
                                         <c:forEach var="user" items="${user}">
-                                            <th scope="cols">업데이트</th>
+                                            <th scope="cols">업데이트 | 삭제</th>
                                         </c:forEach>
                                     </div>
                                 </tr>
