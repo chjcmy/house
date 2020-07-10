@@ -23,8 +23,7 @@ public class PlateServiceImpl implements PlateService{
     @Override
     @Transactional
     public void savePlate(Plate thePlate) {
-
-        plateDAO.savePlate(thePlate);
+             plateDAO.savePlate(thePlate);
     }
 
     @Override

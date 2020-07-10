@@ -8,16 +8,7 @@ import java.util.List;
 public class MediaVO {
     private String creator;
     private String callbackUrl;
-    private List<MultipartFile> mediaFile;
-
-    @Override
-    public String toString() {
-        return "MediaVO{" +
-                "creator='" + creator + '\'' +
-                ", callbackUrl='" + callbackUrl + '\'' +
-                ", mediaFile=" + mediaFile +
-                '}';
-    }
+    private MultipartFile[] mediaFile;
 
     public String getCreator() {
         return creator;
@@ -35,11 +26,11 @@ public class MediaVO {
         this.callbackUrl = callbackUrl;
     }
 
-    public List<MultipartFile> getMediaFile() {
+    public MultipartFile[] getMediaFile() {
         return mediaFile;
     }
 
-    public void setMediaFile(List<MultipartFile> mediaFile) {
+    public void setMediaFile(MultipartFile[] mediaFile) {
         this.mediaFile = mediaFile;
     }
 }

@@ -13,14 +13,14 @@
 </head>
 <body>
 <h3>파일 업로드 + 추가 정보 by @ModelAttribute</h3>
-<form action="uploadFileModelAttribute" method="post" enctype="multipart/form-data">
+<form action="singleFileUploadWithAdditionalData" method="post" enctype="multipart/form-data">
     Creator:<br>
     <input type="text" name="creator">
     <br>
     CallbackUrl:<br>
     <input type="text" name="callbackUrl">
     <br>
-    <input type="file" name="mediaFile"  multiple="multiple">
+    <input type="file" name="mediaFile" multiple="multiple">
     <br><br>
     <button type="submit">Upload</button>
 </form>

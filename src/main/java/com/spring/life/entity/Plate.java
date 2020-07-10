@@ -1,6 +1,7 @@
 package com.spring.life.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "plate")
@@ -25,6 +26,10 @@ public class Plate {
 
     @Column(name="date")
     private String date;
+
+    @OneToMany(mappedBy = "pichost")
+    private List<Pic> pichosts;
+
 
     public int getId() {
         return id;

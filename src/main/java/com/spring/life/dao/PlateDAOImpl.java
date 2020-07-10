@@ -35,8 +35,9 @@ public class PlateDAOImpl implements PlateDAO{
     @Override
     public void savePlate(Plate thePlate) {
         Session currentSession = sessionFactory.getCurrentSession();
-
         currentSession.saveOrUpdate(thePlate);
+
+
     }
 
     @Override

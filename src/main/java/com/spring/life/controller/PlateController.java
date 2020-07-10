@@ -62,7 +62,6 @@ public class PlateController {
     @PostMapping("/save")
     public String savePlate(@ModelAttribute("plate") Plate thePlate) {
 
-        System.out.println(thePlate);
         plateService.savePlate(thePlate);
 
 
@@ -104,11 +103,10 @@ public class PlateController {
     }
 
 
-    @RequestMapping(value = "/uploadFileModelAttribute", method = RequestMethod.POST)
-    public String singleFileUploadWith(@ModelAttribute MediaVO mediaVO, Model model) throws IOException {
-        System.out.println(mediaVO.getMediaFile());
+    @RequestMapping(value = "/singleFileUploadWithAdditionalData", method = RequestMethod.POST)
+    public String singleFileUploadWith(@ModelAttribute MediaVO mediaVO,@RequestParam("mediaFile") MultipartFile[] multipartFiles, Model model) throws IOException {
 
-            List<MultipartFile> files = mediaVO.getMediaFile();
+            MultipartFile[] files = multipartFiles;
 
         for (MultipartFile file : files) {
             if (!file.getOriginalFilename().isEmpty()) {
