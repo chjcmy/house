@@ -36,7 +36,7 @@
                 <div class="header_icon">
                     <ul>
                         <li><a href="/plate/list"><i class="fab fa-java" aria-hidden="true"></i><span>JAVA</span></a></li>
-                        <li><a href="/uploads"><i class="fab fa-google" aria-hidden="true"></i><span>GO</span></a></li>
+                        <li><a href="/plate/uploads"><i class="fab fa-google" aria-hidden="true"></i><span>GO</span></a></li>
                         <li><a href="#"><i class="fab fa-google-play" aria-hidden="true"></i><span>KOTLIN</span></a></li>
                     </ul>
                 </div>

@@ -1,5 +1,6 @@
 package com.spring.life.controller;
 
+import com.spring.life.entity.MediaVO;
 import com.spring.life.entity.Plate;
 import com.spring.life.service.PlateService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,9 +8,16 @@ import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
+
+import static com.spring.life.controller.Constants.*;
 
 @Controller
 @RequestMapping("/plate")
@@ -28,20 +36,18 @@ public class PlateController {
         pagedListHolder.setPageSize(10);
         modelAndView.addObject("maxPages", pagedListHolder.getPageCount());
 
-        if(page==null || page < 1 || page > pagedListHolder.getPageCount())page=1;
+        if (page == null || page < 1 || page > pagedListHolder.getPageCount()) page = 1;
 
         modelAndView.addObject("page", page);
-        if(page == null || page < 1 || page > pagedListHolder.getPageCount()){
+        if (page == null || page < 1 || page > pagedListHolder.getPageCount()) {
             pagedListHolder.setPage(0);
             modelAndView.addObject("plates", pagedListHolder.getPageList());
-        }
-        else if(page <= pagedListHolder.getPageCount()) {
-            pagedListHolder.setPage(page-1);
+        } else if (page <= pagedListHolder.getPageCount()) {
+            pagedListHolder.setPage(page - 1);
             modelAndView.addObject("plates", pagedListHolder.getPageList());
         }
         return modelAndView;
     }
-
 
 
     @GetMapping("/add")
@@ -54,7 +60,7 @@ public class PlateController {
     }
 
     @PostMapping("/save")
-    public String savePlate(@ModelAttribute("plate") Plate thePlate){
+    public String savePlate(@ModelAttribute("plate") Plate thePlate) {
 
         System.out.println(thePlate);
         plateService.savePlate(thePlate);
@@ -91,7 +97,33 @@ public class PlateController {
         return "mainText";
     }
 
+    @GetMapping("/uploads")
+    public String fileUploadForm(Model model) {
+
+        return "upload";
+    }
 
 
+    @RequestMapping(value = "/uploadFileModelAttribute", method = RequestMethod.POST)
+    public String singleFileUploadWith(@ModelAttribute MediaVO mediaVO, Model model) throws IOException {
+        System.out.println(mediaVO.getMediaFile());
 
+            List<MultipartFile> files = mediaVO.getMediaFile();
+
+        for (MultipartFile file : files) {
+            if (!file.getOriginalFilename().isEmpty()) {
+                BufferedOutputStream outputStream = new BufferedOutputStream(
+                        new FileOutputStream(
+                                new File(DOWNLOAD_PATH + "/" + MULTI_FILE_UPLOAD_PATH, file.getOriginalFilename())));
+
+                outputStream.write(file.getBytes());
+                outputStream.flush();
+                outputStream.close();
+            } else {
+                model.addAttribute("msg", "Please select a valid mediaFile..");
+            }
+        }
+        model.addAttribute("msg", "File uploaded successfully.");
+        return "upload";
+    }
 }

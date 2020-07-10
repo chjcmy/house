@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: chjcm
@@ -11,17 +12,21 @@
     <title>Title</title>
 </head>
 <body>
-<h3>단일 파일 업로드</h3>
-<form action="singleFileUpload" method="post" enctype="multipart/form-data">
-    <table>
-        <tr>
-            <td>Select File</td>
-            <td><input type="file" name="mediaFile"></td>
-            <td>
-                <button type="submit">Upload</button>
-            </td>
-        </tr>
-    </table>
+<h3>파일 업로드 + 추가 정보 by @ModelAttribute</h3>
+<form action="uploadFileModelAttribute" method="post" enctype="multipart/form-data">
+    Creator:<br>
+    <input type="text" name="creator">
+    <br>
+    CallbackUrl:<br>
+    <input type="text" name="callbackUrl">
+    <br>
+    <input type="file" name="mediaFile"  multiple="multiple">
+    <br><br>
+    <button type="submit">Upload</button>
 </form>
+
+
+<span style="color: red; font-size: 14px;">${msg}</span>
+
 </body>
 </html>
