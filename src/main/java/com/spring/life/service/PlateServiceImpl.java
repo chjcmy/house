@@ -22,8 +22,8 @@ public class PlateServiceImpl implements PlateService{
 
     @Override
     @Transactional
-    public void savePlate(Plate thePlate) {
-             plateDAO.savePlate(thePlate);
+    public String savePlate(Plate thePlate) {
+        return plateDAO.savePlate(thePlate);
     }
 
     @Override
@@ -44,5 +44,12 @@ public class PlateServiceImpl implements PlateService{
     public List<Plate> selectPlate(int theId) {
         return plateDAO.selectPlate(theId);
     }
+
+    @Override
+    @Transactional
+    public void picsave(String picnum, String picpath) {
+        plateDAO.picsave(picnum, picpath);
+    }
+
 
 }

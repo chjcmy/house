@@ -8,7 +8,7 @@ public interface PlateService {
 
     List<Plate> getPlates();
 
-    void savePlate(Plate thePlate);
+    String savePlate(Plate thePlate);
 
     Plate getPlate(int theId);
 
@@ -16,5 +16,5 @@ public interface PlateService {
 
     List<Plate> selectPlate(int theId);
 
-    ;
+    void picsave(String picnum, String picpath);
 }

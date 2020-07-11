@@ -1,6 +1,7 @@
 package com.spring.life.controller;
 
 import com.spring.life.entity.MediaVO;
+import com.spring.life.entity.Pic;
 import com.spring.life.entity.Plate;
 import com.spring.life.service.PlateService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 
 import static com.spring.life.controller.Constants.*;
@@ -60,10 +58,25 @@ public class PlateController {
     }
 
     @PostMapping("/save")
-    public String savePlate(@ModelAttribute("plate") Plate thePlate) {
+    public String savePlate(@ModelAttribute("plate") Plate thePlate,@RequestParam("mediaFile") MultipartFile[] multipartFiles) throws IOException {
 
-        plateService.savePlate(thePlate);
+        String picnum = plateService.savePlate(thePlate);
 
+        MultipartFile[] files = multipartFiles;
+
+        for (MultipartFile file : files) {
+            if (!file.getOriginalFilename().isEmpty()) {
+                BufferedOutputStream outputStream = new BufferedOutputStream(
+                        new FileOutputStream(
+                                new File(DOWNLOAD_PATH + "/" + MULTI_FILE_UPLOAD_PATH, file.getOriginalFilename())));
+                String picpath = DOWNLOAD_PATH + "/" + MULTI_FILE_UPLOAD_PATH+file.getOriginalFilename();
+
+                plateService.picsave(picnum, picpath);
+                outputStream.write(file.getBytes());
+                outputStream.flush();
+                outputStream.close();
+            }
+        }
 
         return "redirect:/plate/list";
     }
@@ -103,25 +116,4 @@ public class PlateController {
     }
 
 
-    @RequestMapping(value = "/singleFileUploadWithAdditionalData", method = RequestMethod.POST)
-    public String singleFileUploadWith(@ModelAttribute MediaVO mediaVO,@RequestParam("mediaFile") MultipartFile[] multipartFiles, Model model) throws IOException {
-
-            MultipartFile[] files = multipartFiles;
-
-        for (MultipartFile file : files) {
-            if (!file.getOriginalFilename().isEmpty()) {
-                BufferedOutputStream outputStream = new BufferedOutputStream(
-                        new FileOutputStream(
-                                new File(DOWNLOAD_PATH + "/" + MULTI_FILE_UPLOAD_PATH, file.getOriginalFilename())));
-
-                outputStream.write(file.getBytes());
-                outputStream.flush();
-                outputStream.close();
-            } else {
-                model.addAttribute("msg", "Please select a valid mediaFile..");
-            }
-        }
-        model.addAttribute("msg", "File uploaded successfully.");
-        return "upload";
-    }
 }

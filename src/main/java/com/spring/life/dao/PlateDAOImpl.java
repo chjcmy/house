@@ -33,11 +33,15 @@ public class PlateDAOImpl implements PlateDAO{
     }
 
     @Override
-    public void savePlate(Plate thePlate) {
+    public String savePlate(Plate thePlate) {
         Session currentSession = sessionFactory.getCurrentSession();
         currentSession.saveOrUpdate(thePlate);
 
+        Query theQuery = currentSession.createQuery("select id from Plate where intro=:intro ");
 
+        theQuery.setParameter("intro", thePlate.getIntro());
+
+        return String.valueOf(theQuery.getSingleResult());
     }
 
     @Override
@@ -89,6 +93,21 @@ public class PlateDAOImpl implements PlateDAO{
         // return the results
         return mainplate;
     }
+
+    @Override
+    public void picsave(String picnum, String picpath) {
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        Query theQuery =
+                currentSession.createNativeQuery("insert into pic(pichost, picpath) values (:pichost,:picpath)");
+        theQuery.setParameter("pichost", picnum);
+        theQuery.setParameter("picpath", picpath);
+
+        theQuery.executeUpdate();
+
+    }
+
+
 
 
 }

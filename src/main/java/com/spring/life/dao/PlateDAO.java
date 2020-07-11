@@ -7,11 +7,13 @@ import java.util.List;
 public interface PlateDAO {
     List<Plate> getPlates();
 
-    void savePlate(Plate thePlate);
+    String savePlate(Plate thePlate);
 
     Plate getPlate(int theId);
 
     void deletePlate(int theId);
 
     List<Plate> selectPlate(int theId);
+
+    void picsave(String picnum, String picpath);
 }

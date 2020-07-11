@@ -12,7 +12,7 @@
 <div id="container">
     <h3>Save Plate</h3>
 
-    <form:form action="save" modelAttribute="plate" method="post">
+    <form:form action="save" modelAttribute="plate" method="post" enctype="multipart/form-data">
         <form:hidden path="id" />
 
         <table>
@@ -36,6 +36,9 @@
             <tr>
                 <td><label></label></td>
                 <td><input type="submit" value="Save" class="save"/></td>
+            </tr>
+            <tr>
+            <input type="file" name="mediaFile" multiple="multiple">
             </tr>
             </tbody>
         </table>
