@@ -13,6 +13,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.*;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 import static com.spring.life.controller.Constants.*;
@@ -50,6 +52,7 @@ public class PlateController {
 
     @GetMapping("/add")
     public String plateadd(Model theModel) {
+
 
         Plate thePlate = new Plate();
 
@@ -104,10 +107,10 @@ public class PlateController {
     public String selectMain(@RequestParam("plateId") int theId, Model theModel) {
 
         List<Plate> mainplates = plateService.selectPlate(theId);
-
-
+        List<Pic> mainpics = plateService.getPic(theId);
 
         theModel.addAttribute("mainplate", mainplates);
+        theModel.addAttribute("pic", mainpics);
         return "mainText";
     }
 

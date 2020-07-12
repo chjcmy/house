@@ -1,6 +1,7 @@
 package com.spring.life.service;
 
 import com.spring.life.dao.PlateDAO;
+import com.spring.life.entity.Pic;
 import com.spring.life.entity.Plate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,6 +50,12 @@ public class PlateServiceImpl implements PlateService{
     @Transactional
     public void picsave(String picnum, String picpath) {
         plateDAO.picsave(picnum, picpath);
+    }
+
+    @Override
+    @Transactional
+    public List<Pic> getPic(int theId) {
+        return plateDAO.getPic(theId);
     }
 
 

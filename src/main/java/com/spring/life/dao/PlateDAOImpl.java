@@ -1,5 +1,6 @@
 package com.spring.life.dao;
 
+import com.spring.life.entity.Pic;
 import com.spring.life.entity.Plate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -35,8 +36,15 @@ public class PlateDAOImpl implements PlateDAO{
     @Override
     public String savePlate(Plate thePlate) {
         Session currentSession = sessionFactory.getCurrentSession();
-        currentSession.saveOrUpdate(thePlate);
+        java.util.Date dt = new java.util.Date();
 
+        java.text.SimpleDateFormat sdf =
+                new java.text.SimpleDateFormat("yyyy-MM-dd");
+
+        String currentTime = sdf.format(dt);
+        thePlate.setDate(currentTime);
+        System.out.println(thePlate.getDate());
+        currentSession.saveOrUpdate(thePlate);
         Query theQuery = currentSession.createQuery("select id from Plate where intro=:intro ");
 
         theQuery.setParameter("intro", thePlate.getIntro());
@@ -107,7 +115,20 @@ public class PlateDAOImpl implements PlateDAO{
 
     }
 
+    @Override
+    public List<Pic> getPic(int theId) {
 
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        Query theQuery = null;
+        String theIds = String.valueOf(theId);
+        theQuery =currentSession.createQuery("from Pic where pichost=:picId ", Pic.class);
+        theQuery.setParameter("picId", theIds);
+
+        List<Pic> mainpics = theQuery.getResultList();
+        System.out.println(mainpics);
+        return mainpics;
+    }
 
 
 }

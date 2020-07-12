@@ -1,6 +1,9 @@
 package com.spring.life.entity;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -27,17 +30,12 @@ public class Plate {
     @Column(name="date")
     private String date;
 
-    @OneToMany(mappedBy = "pichost")
-    private List<Pic> pichosts;
-
 
     public int getId() {
         return id;
     }
 
-    public String getDate() {
-        return date;
-    }
+
 
     public String getIntro() {
         return intro;
@@ -53,6 +51,10 @@ public class Plate {
 
     public String getMain_text() {
         return main_text;
+    }
+
+    public String getDate() {
+        return date;
     }
 
     public void setDate(String date) {

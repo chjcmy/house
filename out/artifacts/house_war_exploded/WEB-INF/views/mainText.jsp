@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 
@@ -73,12 +74,25 @@
                                     <th scope="row">내용</th>
                                     <td>${tempplates.main_text}</td>
                                 </tr>
+                                </c:forEach>
+                                <tr>
+                                    <th scope="row">사진</th>
+                                    <c:forEach var="pic" items="${pic}">
+                                        <td>
+<%--                                            <img src="${pic.picpath}" width="100" height="100">--%>
+
+                                            <img src="file:///C:/upload/MultiFileUpload/03.jpg" >
+                                        </td>
+                                        <br>
+                                    </c:forEach>
+                                </tr>
                                 </tbody>
                             </table>
-                            </c:forEach>
+
                         </div>
                     </div>
                 </article>
+
             </section>
             <jsp:include page="part/right_side.jsp"/>
         </div>

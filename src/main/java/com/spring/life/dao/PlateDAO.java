@@ -1,5 +1,6 @@
 package com.spring.life.dao;
 
+import com.spring.life.entity.Pic;
 import com.spring.life.entity.Plate;
 
 import java.util.List;
@@ -16,4 +17,6 @@ public interface PlateDAO {
     List<Plate> selectPlate(int theId);
 
     void picsave(String picnum, String picpath);
+
+    List<Pic> getPic(int theId);
 }
