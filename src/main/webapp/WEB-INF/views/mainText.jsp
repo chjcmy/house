@@ -73,12 +73,22 @@
                                     <th scope="row">내용</th>
                                     <td>${tempplates.main_text}</td>
                                 </tr>
+                                </c:forEach>
+                                <tr>
+                                    <th scope="row">사진</th>
+                                    <c:forEach var="pic" items="${pic}">
+                                        <td>
+                                            <img src="${pic.picpath}" width="12" height="11">
+                                        </td>
+                                    </c:forEach>
+                                </tr>
                                 </tbody>
                             </table>
-                            </c:forEach>
+
                         </div>
                     </div>
                 </article>
+
             </section>
             <jsp:include page="part/right_side.jsp"/>
         </div>

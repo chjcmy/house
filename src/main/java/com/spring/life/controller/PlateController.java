@@ -69,7 +69,7 @@ public class PlateController {
                 BufferedOutputStream outputStream = new BufferedOutputStream(
                         new FileOutputStream(
                                 new File(DOWNLOAD_PATH + "/" + MULTI_FILE_UPLOAD_PATH, file.getOriginalFilename())));
-                String picpath = DOWNLOAD_PATH + "/" + MULTI_FILE_UPLOAD_PATH+file.getOriginalFilename();
+                String picpath = DOWNLOAD_PATH + "\\" + MULTI_FILE_UPLOAD_PATH + "\\" + file.getOriginalFilename();
 
                 plateService.picsave(picnum, picpath);
                 outputStream.write(file.getBytes());
@@ -104,6 +104,8 @@ public class PlateController {
     public String selectMain(@RequestParam("plateId") int theId, Model theModel) {
 
         List<Plate> mainplates = plateService.selectPlate(theId);
+
+
 
         theModel.addAttribute("mainplate", mainplates);
         return "mainText";
