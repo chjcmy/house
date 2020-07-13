@@ -1,7 +1,7 @@
 package com.spring.life.controller;
 
 public class Constants {
-        public final static String DOWNLOAD_PATH = "C:\\upload";
+        public final static String DOWNLOAD_PATH = "webapp\\resources\\pic";
         public final static String SINGLE_FILE_UPLOAD_PATH = "SingleFileUpload";
         public final static String MULTI_FILE_UPLOAD_PATH = "MultiFileUpload";
         public final static String SINGLE_FILE_UPLOAD_AND_EXTRA_DATA1_PATH = "SingleFileUploadAndExtraPath1";

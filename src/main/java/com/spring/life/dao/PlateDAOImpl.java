@@ -48,7 +48,7 @@ public class PlateDAOImpl implements PlateDAO{
         Query theQuery = currentSession.createQuery("select id from Plate where intro=:intro ");
 
         theQuery.setParameter("intro", thePlate.getIntro());
-
+        System.out.println(theQuery.getSingleResult());
         return String.valueOf(theQuery.getSingleResult());
     }
 

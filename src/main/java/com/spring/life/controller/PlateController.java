@@ -66,13 +66,13 @@ public class PlateController {
         String picnum = plateService.savePlate(thePlate);
 
         MultipartFile[] files = multipartFiles;
-
+        System.out.println("내프로젝트의 루트경로는?  " + System.getProperty("user.dir"));
         for (MultipartFile file : files) {
             if (!file.getOriginalFilename().isEmpty()) {
                 BufferedOutputStream outputStream = new BufferedOutputStream(
                         new FileOutputStream(
-                                new File(DOWNLOAD_PATH + "/" + MULTI_FILE_UPLOAD_PATH, file.getOriginalFilename())));
-                String picpath = DOWNLOAD_PATH + "\\" + MULTI_FILE_UPLOAD_PATH + "\\" + file.getOriginalFilename();
+                                new File(DOWNLOAD_PATH + "\\" , file.getOriginalFilename())));
+                String picpath = DOWNLOAD_PATH + "\\" + file.getOriginalFilename();
 
                 plateService.picsave(picnum, picpath);
                 outputStream.write(file.getBytes());
