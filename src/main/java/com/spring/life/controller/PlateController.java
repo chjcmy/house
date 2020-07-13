@@ -66,9 +66,7 @@ public class PlateController {
 
     @PostMapping("/save")
     public String savePlate(@ModelAttribute("plate") Plate thePlate,@RequestParam("mediaFile") MultipartFile[] multipartFiles) throws IOException {
-        Path relativePath = Paths.get("");
-        String path = relativePath.toAbsolutePath().toString();
-        System.out.println("Working Directory = " + path);
+
 
         String picnum = plateService.savePlate(thePlate);
 
@@ -79,7 +77,7 @@ public class PlateController {
                 BufferedOutputStream outputStream = new BufferedOutputStream(
                         new FileOutputStream(
                                 new File(DOWNLOAD_PATH + "/" , file.getOriginalFilename())));
-                String picpath = DOWNLOAD_PATH + "/" + file.getOriginalFilename();
+                String picpath =  "resources/pic/" + file.getOriginalFilename();
 
                 plateService.picsave(picnum, picpath);
                 outputStream.write(file.getBytes());
@@ -118,6 +116,7 @@ public class PlateController {
 
         theModel.addAttribute("mainplate", mainplates);
         theModel.addAttribute("pic", mainpics);
+
         return "mainText";
     }
 

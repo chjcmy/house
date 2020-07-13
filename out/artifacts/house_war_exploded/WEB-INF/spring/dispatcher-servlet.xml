@@ -17,9 +17,9 @@
     <bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
           destroy-method="close">
         <property name="driverClass" value="org.mariadb.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mariadb://58.229.144.46:3306/blog?useSSL=false&amp;characterEncoding=utf8&amp;serverTimezone=UTC" />
-        <property name="user" value="root" />
-        <property name="password" value="1234" />
+        <property name="jdbcUrl" value="jdbc:mariadb://58.229.144.46:3306/blog?useSSL=false&amp;characterEncoding=utf8&amp;" />
+        <property name="user" value="cshcmi" />
+        <property name="password" value="chltjdgus134679!" />
 
         <!-- these are connection pool properties for C3P0 -->
         <property name="minPoolSize" value="5" />

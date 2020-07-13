@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>List Customers</title>
+    <title>만든사람 최성현</title>
     <!-- style -->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/reset.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css?after">
@@ -79,9 +79,9 @@
                                     <th scope="row">사진</th>
                                     <c:forEach var="pic" items="${pic}">
                                         <td>
-                                          <img src="${pageContext.request.contextPath}/${pic.picpath}" width="100" height="100">
 
-                                            <img src="${pageContext.request.contextPath}/resources/pic/최성현0523-1-1.jpg" >
+                                          <img src="${pageContext.request.contextPath}/${pic.picpath}">
+
                                         </td>
                                         <br>
                                     </c:forEach>

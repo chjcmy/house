@@ -90,6 +90,8 @@
                                     <p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
                                 </c:if>
                             </form>
+                        </div>
+                    </div>
                 </article>
             </section>
             <jsp:include page="part/right_side.jsp" />

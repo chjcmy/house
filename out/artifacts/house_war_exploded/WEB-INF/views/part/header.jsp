@@ -3,7 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>최성현</title>
 
 
 </head>
@@ -37,7 +37,7 @@
                     <ul>
                         <li><a href="/plate/selectlist?id=java"><i class="fab fa-java" aria-hidden="true"></i><span>JAVA</span></a></li>
                         <li><a href="/plate/selectlist?id=go"><i class="fab fa-google" aria-hidden="true"></i><span>GO</span></a></li>
-                        <li><a href="/plate/selectlist?id=kotlin"><i class="fab fa-google-play" aria-hidden="true"></i><span>KOTLIN</span></a></li>
+                        <li><a href="/plate/selectlist?id=kotlin"><i class="fab fa-android" aria-hidden="true"></i><span>KOTLIN</span></a></li>
                     </ul>
                 </div>
             </div>

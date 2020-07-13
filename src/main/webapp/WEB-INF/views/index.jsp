@@ -11,10 +11,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="webstoryboy">
+    <meta name="author" content="최성현">
     <meta name="description" content="우르곳은 제왕">
     <meta name="keywords" content="반응형사이트, 자바, 손흥민, 블랙핑크, 코틀린, 고, go, kotlin, spring, spring mvc, webs">
-    <title>반응형 사이트 만들기 : 아웃 라이너</title>
+    <title>끝임 없이 노력하는 곳</title>
 
     <!-- style -->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/reset.css">
@@ -44,18 +44,7 @@
         alert("현재 당신이 보는 브라우저는 지원하지 않습니다. 최신 브라우저로 업데이트해주세요!");
     </script>
     <![endif]-->
-    <audio id='audio_play' src='./sound/'></audio>
-    <script type="text/javascript">
-        function play() {
-            var audio = document.getElementById('audio_play');
-            if (audio.paused) {
-                audio.play();
-            } else {
-                audio.pause();
-                audio.currentTime = 0
-            }
-        }
-    </script>
+
 </head>
 
 <body>
@@ -65,10 +54,10 @@
 <main>
     <section id="contents">
         <div class="container">
-            <h2 class="ir_su">반응형 사이트 컨텐츠</h2>
+            <h2 class="ir_su">choi 사이트 컨텐츠</h2>
             <jsp:include page="part/left_side.jsp"></jsp:include>
             <section id="cont_center">
-                <h3 class="ir_su">반응형 사이트 가운데 컨텐츠</h3>
+                <h3 class="ir_su"> 가운데 컨텐츠</h3>
                 <article class="column col4">
                     <h4 class="col_tit">Slick Slider</h4>
                     <p class="col_desc">slick.js를 이용한 이미지 슬라이드 효과입니다.</p>
@@ -77,19 +66,25 @@
                         <div>
                             <figure>
                                 <img src="${pageContext.request.contextPath}/resources/img/slider001.jpg" alt="이미지1">
-                                <figcaption><em>Responsive Site1</em><span>슬라이드 플러그인을 이용한 반응형 이미지 슬라이드 입니다.</span></figcaption>
+                                <figcaption><em>별수호자 우르곳</em><span>귀여움</span></figcaption>
                             </figure>
                         </div>
                         <div>
                             <figure>
-                                <img src="${pageContext.request.contextPath}/resources/img/slider001.jpg" alt="이미지2">
-                                <figcaption><em>Responsive Site2</em><span>슬라이드 플러그인을 이용한 반응형 이미지 슬라이드 입니다.</span></figcaption>
+                                <img src="${pageContext.request.contextPath}/resources/img/slider002.jpg" alt="이미지2">
+                                <figcaption><em>도살자 우르곳</em><span>잔인한</span></figcaption>
                             </figure>
                         </div>
                         <div>
                             <figure>
-                                <img src="${pageContext.request.contextPath}/resources/img/slider001.jpg" alt="이미지3">
-                                <figcaption><em>Responsive Site3</em><span>슬라이드 플러그인을 이용한 반응형 이미지 슬라이드 입니다.</span></figcaption>
+                                <img src="${pageContext.request.contextPath}/resources/img/slider003.jpg" alt="이미지3">
+                                <figcaption><em>전투기계 우르곳</em><span>강인한</span></figcaption>
+                            </figure>
+                        </div>
+                        <div>
+                            <figure>
+                                <img src="${pageContext.request.contextPath}/resources/img/slider005.jpg" alt="이미지3">
+                                <figcaption><em>대게</em><span>무서운</span></figcaption>
                             </figure>
                         </div>
                     </div>
