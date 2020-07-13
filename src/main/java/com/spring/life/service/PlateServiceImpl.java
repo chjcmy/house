@@ -58,5 +58,11 @@ public class PlateServiceImpl implements PlateService{
         return plateDAO.getPic(theId);
     }
 
+    @Override
+    @Transactional
+    public List<Plate> selectlist(String id) {
+        return plateDAO.selectlist(id);
+    }
+
 
 }

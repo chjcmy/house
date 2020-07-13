@@ -130,6 +130,18 @@ public class PlateDAOImpl implements PlateDAO{
         return mainpics;
     }
 
+    @Override
+    public List<Plate> selectlist(String id) {
+
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        Query theQuery = null;
+
+        theQuery =currentSession.createQuery("from Plate where kind=:Id ", Plate.class);
+        theQuery.setParameter("Id", id);
+        return theQuery.getResultList();
+    }
+
 
 }
 

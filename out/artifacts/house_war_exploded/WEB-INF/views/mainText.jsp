@@ -79,17 +79,16 @@
                                     <th scope="row">사진</th>
                                     <c:forEach var="pic" items="${pic}">
                                         <td>
-<%--                                            <img src="${pic.picpath}" width="100" height="100">--%>
+                                          <img src="${pageContext.request.contextPath}/${pic.picpath}" width="100" height="100">
 
                                             <img src="${pageContext.request.contextPath}/resources/pic/최성현0523-1-1.jpg" >
                                         </td>
-                                        <img src="${pageContext.request.contextPath}/resources/pic/최성현0523-1-1.jpg" >
                                         <br>
                                     </c:forEach>
                                 </tr>
                                 </tbody>
                             </table>
-                            <img src="${pageContext.request.contextPath}/resources/pic/최성현0523-1-1.jpg" >
+                            <
                         </div>
                     </div>
                 </article>

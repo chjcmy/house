@@ -12,10 +12,14 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import static com.spring.life.controller.Constants.*;
 
@@ -62,17 +66,20 @@ public class PlateController {
 
     @PostMapping("/save")
     public String savePlate(@ModelAttribute("plate") Plate thePlate,@RequestParam("mediaFile") MultipartFile[] multipartFiles) throws IOException {
+        Path relativePath = Paths.get("");
+        String path = relativePath.toAbsolutePath().toString();
+        System.out.println("Working Directory = " + path);
 
         String picnum = plateService.savePlate(thePlate);
 
         MultipartFile[] files = multipartFiles;
-        System.out.println("내프로젝트의 루트경로는?  " + System.getProperty("user.dir"));
+
         for (MultipartFile file : files) {
             if (!file.getOriginalFilename().isEmpty()) {
                 BufferedOutputStream outputStream = new BufferedOutputStream(
                         new FileOutputStream(
-                                new File(DOWNLOAD_PATH + "\\" , file.getOriginalFilename())));
-                String picpath = DOWNLOAD_PATH + "\\" + file.getOriginalFilename();
+                                new File(DOWNLOAD_PATH + "/" , file.getOriginalFilename())));
+                String picpath = DOWNLOAD_PATH + "/" + file.getOriginalFilename();
 
                 plateService.picsave(picnum, picpath);
                 outputStream.write(file.getBytes());
@@ -114,11 +121,27 @@ public class PlateController {
         return "mainText";
     }
 
-    @GetMapping("/uploads")
-    public String fileUploadForm(Model model) {
+    @GetMapping("/selectlist")
+    public ModelAndView selectlist(@RequestParam String id,Model model,@RequestParam(required = false) Integer page) {
+        ModelAndView modelAndView = new ModelAndView("table");
 
-        return "upload";
+        List<Plate> thePlates = plateService.selectlist(id);
+
+        PagedListHolder<Plate> pagedListHolder = new PagedListHolder<>(thePlates);
+        pagedListHolder.setPageSize(10);
+        modelAndView.addObject("maxPages", pagedListHolder.getPageCount());
+
+        if (page == null || page < 1 || page > pagedListHolder.getPageCount()) page = 1;
+
+        modelAndView.addObject("page", page);
+        if (page == null || page < 1 || page > pagedListHolder.getPageCount()) {
+            pagedListHolder.setPage(0);
+            modelAndView.addObject("plates", pagedListHolder.getPageList());
+        } else if (page <= pagedListHolder.getPageCount()) {
+            pagedListHolder.setPage(page - 1);
+            modelAndView.addObject("plates", pagedListHolder.getPageList());
+        }
+        return modelAndView;
     }
-
 
 }

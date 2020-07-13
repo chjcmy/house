@@ -19,4 +19,6 @@ public interface PlateDAO {
     void picsave(String picnum, String picpath);
 
     List<Pic> getPic(int theId);
+
+    List<Plate> selectlist(String id);
 }
