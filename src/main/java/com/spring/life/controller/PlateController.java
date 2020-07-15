@@ -142,5 +142,16 @@ public class PlateController {
         }
         return modelAndView;
     }
+    @GetMapping("/leftselect")
+    public String selectMains(@RequestParam int id, Model theModel) {
+
+        List<Plate> mainplates = plateService.selectPlate(id);
+        List<Pic> mainpics = plateService.getPic(id);
+
+        theModel.addAttribute("mainplate", mainplates);
+        theModel.addAttribute("pic", mainpics);
+
+        return "mainText";
+    }
 
 }

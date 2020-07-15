@@ -142,6 +142,18 @@ public class PlateDAOImpl implements PlateDAO{
         return theQuery.getResultList();
     }
 
+    @Override
+    public List<Plate> leftlist() {
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        Query theQuery = null;
+
+        theQuery =currentSession.createQuery("from Plate order by date DESC", Plate.class);
+        theQuery.setMaxResults(5);
+
+        return theQuery.getResultList();
+    }
+
 
 }
 

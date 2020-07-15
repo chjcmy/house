@@ -64,5 +64,11 @@ public class PlateServiceImpl implements PlateService{
         return plateDAO.selectlist(id);
     }
 
+    @Override
+    @Transactional
+    public List<Plate> leftlist() {
+            return plateDAO.leftlist();
+    }
+
 
 }

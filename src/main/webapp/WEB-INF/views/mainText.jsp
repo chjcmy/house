@@ -72,7 +72,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">내용</th>
-                                    <td>${tempplates.main_text}</td>
+                                    <td><textarea readonly>${tempplates.main_text}</textarea></td>
                                 </tr>
                                 </c:forEach>
                                 <tr>
@@ -88,7 +88,6 @@
                                 </tr>
                                 </tbody>
                             </table>
-                            <
                         </div>
                     </div>
                 </article>

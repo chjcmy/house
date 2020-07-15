@@ -80,7 +80,7 @@
     <div class="container">
         <div class="title">
             <h2>"지식이 부족하기 때문에 발전 하는 개발자"</h2>
-            <a href="#" class="btn">
+            <a href="/" class="btn">
                 <i class="fas fa-chess-knight" aria-hidden="true"></i>
                 <span class="ir_su">전체메뉴 보기</span>
             </a>

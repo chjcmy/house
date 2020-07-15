@@ -17,6 +17,7 @@
           <element id="library" level="project" name="tomcat:servlet:4.1.36" />
           <element id="library" level="project" name="Java EE 6-Java EE 6" />
           <element id="library" level="project" name="jstl:jstl:1.2" />
+          <element id="library" level="project" name="org.json:json:20200518" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="house/javaeeApplication/javaEEApplication" />

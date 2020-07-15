@@ -84,7 +84,7 @@
                         <div>
                             <figure>
                                 <img src="${pageContext.request.contextPath}/resources/img/slider005.jpg" alt="이미지3">
-                                <figcaption><em>대게</em><span>무서운</span></figcaption>
+                                <figcaption><em>대게 우르곳</em><span>무서운</span></figcaption>
                             </figure>
                         </div>
                     </div>

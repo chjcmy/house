@@ -21,4 +21,6 @@ public interface PlateDAO {
     List<Pic> getPic(int theId);
 
     List<Plate> selectlist(String id);
+
+    List<Plate> leftlist();
 }

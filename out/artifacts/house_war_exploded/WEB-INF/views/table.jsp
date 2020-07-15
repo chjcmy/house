@@ -66,6 +66,13 @@
                             </c:if>
 
                             <table class="plate-table">
+                                <colgroup>
+                                    <col width="5%">
+                                    <col width="10%">
+                                    <col width="10%">
+                                    <col width="25%">
+                                    <col width="10%">
+                                </colgroup>
                                 <thead>
                                 <tr>
                                     <th scope="cols">no</th>

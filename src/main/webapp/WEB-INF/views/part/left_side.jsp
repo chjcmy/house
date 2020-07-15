@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: chjcm
@@ -9,6 +10,43 @@
 <html>
 <head>
     <title>Title</title>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery.min_1.12.4.js"></script>
+    <script>
+
+       window.onload = function leftmenu() {
+            $.ajax({
+                type:'GET',
+                url : "<c:url value='/leftnewlist'/>",
+                dataType : "json",
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                success : function(data){
+
+                    var html = "";
+
+                    if(data.length > 0){
+
+                        for(i=0; i<data.length; i++){
+                            html += "<li><a href='/plate/leftselect?id=" + data[i].Id + "'>" + data[i].intro + "</a></li>";
+                        }
+
+                    } else {
+
+                        html += "<div>";
+
+
+                    }
+
+                    $("#commentList").html(html);
+                    console.log("submit")
+                },
+                error:function(request,status,error){
+
+                }
+
+            });
+        }
+
+    </script>
 </head>
 <body>
 <section id="cont_left">
@@ -22,7 +60,7 @@
                 <li><a href="/plate/selectlist?id=java">JAVA <i class="fab fa-java" aria-hidden="true"></i></a></li>
                 <li><a href="/plate/selectlist?id=go">GO <i class="fab fa-google" aria-hidden="true"></i></a></li>
                 <li><a href="/plate/selectlist?id=kotlin">KOTLIN <i class="fab fa-android" aria-hidden="true"></i></a></li>
-                <li><a href="/plate/selectlist?id=java">일상생활 <i class="fas fa-walking" aria-hidden="true"></i></a></li>
+                <li><a href="/plate/selectlist?id=일상생활">일상생활 <i class="fas fa-walking" aria-hidden="true"></i></a></li>
             </ul>
         </div>
         <!-- //메뉴 -->
@@ -36,10 +74,9 @@
         <div class="notice1">
             <h5>Notice1</h5>
             <ul>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
+               <div value = "leftmenu" id="commentList">
+
+               </div>
             </ul>
             <a href="#" class="more" title="더 보기">More<i class="fa fa-plus-circle" aria-hidden="true"></i></a>
         </div>

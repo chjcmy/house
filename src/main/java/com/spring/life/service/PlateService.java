@@ -22,4 +22,6 @@ public interface PlateService {
     List<Pic> getPic(int theId);
 
     List<Plate> selectlist(String id);
+
+    List<Plate> leftlist();
 }
