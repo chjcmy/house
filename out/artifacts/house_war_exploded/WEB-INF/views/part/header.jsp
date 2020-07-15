@@ -3,6 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <meta name="google-site-verification" content="T5sgY-c1lYXiSsJuhJxbbnmUUvZ4EVD9g4A-5kHmjHw" />
     <title>최성현</title>
 
 
