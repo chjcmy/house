@@ -1,6 +1,5 @@
 package com.spring.life.controller;
 
-import com.spring.life.entity.MediaVO;
 import com.spring.life.entity.Pic;
 import com.spring.life.entity.Plate;
 import com.spring.life.service.PlateService;
@@ -12,14 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.*;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.time.LocalDateTime;
-import java.util.Date;
+
 import java.util.List;
-import java.util.Set;
 
 import static com.spring.life.controller.Constants.*;
 
