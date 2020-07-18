@@ -85,6 +85,12 @@
             <artifactId>json</artifactId>
             <version>20200518</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>5.2.3.RELEASE</version>
+        </dependency>
 
 
 
