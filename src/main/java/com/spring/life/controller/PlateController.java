@@ -4,6 +4,7 @@ import com.spring.life.entity.Pic;
 import com.spring.life.entity.Plate;
 import com.spring.life.service.PlateService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,9 +12,11 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.*;
 
 import java.util.List;
+import java.util.Set;
 
 import static com.spring.life.controller.Constants.*;
 
@@ -71,7 +74,7 @@ public class PlateController {
                 BufferedOutputStream outputStream = new BufferedOutputStream(
                         new FileOutputStream(
                                 new File(DOWNLOAD_PATH + "/" , file.getOriginalFilename())));
-                String picpath =  "resources/pic/" + file.getOriginalFilename();
+                String picpath = file.getOriginalFilename();
 
                 plateService.picsave(picnum, picpath);
                 outputStream.write(file.getBytes());
@@ -103,13 +106,16 @@ public class PlateController {
     }
 
     @GetMapping("/select")
-    public String selectMain(@RequestParam("plateId") int theId, Model theModel) {
+    public String selectMain(@RequestParam("plateId") int theId, Model theModel, HttpServletRequest request) {
 
         List<Plate> mainplates = plateService.selectPlate(theId);
         List<Pic> mainpics = plateService.getPic(theId);
+        String pathSet = String.valueOf(request.getSession().getServletContext().getResourcePaths("/"));
+
 
         theModel.addAttribute("mainplate", mainplates);
         theModel.addAttribute("pic", mainpics);
+        theModel.addAttribute("path", pathSet);
 
         return "mainText";
     }

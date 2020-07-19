@@ -80,7 +80,7 @@
                                     <c:forEach var="pic" items="${pic}">
                                         <td>
 
-                                          <img src="home/ubuntu/pic/${pic.picpath}">
+                                          <img src="<c:url value="/img/${pic.picpath}"/>">
 
                                         </td>
                                         <br>
