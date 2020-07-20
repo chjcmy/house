@@ -57,9 +57,11 @@
         <div class="menu">
             <ul>
                 <li><a href="/plate/list">ALL <i class="fas fa-archive" aria-hidden="true"></i></a></li>
+                <li><a href="/plate/selectlist?id=linux">LINUX<i class="fab fa-linux"></i></a></li>
                 <li><a href="/plate/selectlist?id=java">JAVA <i class="fab fa-java" aria-hidden="true"></i></a></li>
                 <li><a href="/plate/selectlist?id=go">GO <i class="fab fa-google" aria-hidden="true"></i></a></li>
                 <li><a href="/plate/selectlist?id=kotlin">KOTLIN <i class="fab fa-android" aria-hidden="true"></i></a></li>
+                <li><a href="/plate/selectlist?id=db">DB <i class="fas fa-database" aria-hidden="true"></i></a></li>
                 <li><a href="/plate/selectlist?id=일상생활">일상생활 <i class="fas fa-walking" aria-hidden="true"></i></a></li>
             </ul>
         </div>
