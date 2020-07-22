@@ -72,7 +72,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">내용</th>
-                                    <td><textarea readonly>${tempplates.main_text}</textarea></td>
+                                    <td><textarea readonly style="width:400px;height:300px;font-size:15px;">${tempplates.main_text}</textarea></td>
                                 </tr>
                                 </c:forEach>
                                 <tr>
