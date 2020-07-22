@@ -24,7 +24,7 @@ public class PlateDAOImpl implements PlateDAO{
 
         // create a query
         Query<Plate> theQuery =
-                currentSession.createQuery("from Plate", Plate.class);
+                currentSession.createQuery("from Plate order by id desc", Plate.class);
 
         // execute query and get result list
         List<Plate> plates = theQuery.getResultList();
