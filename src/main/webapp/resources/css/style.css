@@ -15,15 +15,15 @@
 
 #cont_left {
     float: left;
-    width: 250px;
-    height: 1000px;
+    width: 150px;
+    height: 1300px;
     border-left: 1px solid #dbdbdb;
 }
 
 #cont_center {
     overflow: hidden;
-    height: 1000px;
-    margin-right: 250px;
+    height: 1300px;
+    margin-right: 150px;
     border-right: 1px solid #dbdbdb;
     border-left: 1px solid #dbdbdb;
 }
@@ -32,8 +32,8 @@
     position: absolute;
     right: 0;
     top: 0;
-    width: 250px;
-    height: 1000px;
+    width: 150px;
+    height: 1300px;
     border-right: 1px solid #dbdbdb;
 }
 
@@ -44,7 +44,7 @@
 /* 컨테이너 */
 .container {
     position: relative;
-    width: 1200px;
+    width: 1300px;
     margin: 0 auto;
     /* background: rgba(0,0,0,0.3);*/
 }

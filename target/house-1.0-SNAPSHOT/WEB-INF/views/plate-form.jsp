@@ -88,7 +88,7 @@
                                         </tr>
                                         <tr>
                                             <td><label>내용</label></td>
-                                            <td><form:textarea path="main_text"  style="width:500px;height:300px;font-size:15px;text-align=left;"/></td>
+                                            <td><form:textarea path="main_text"  style="padding: 3px; width:500px;height:300px;font-size:15px;text-align=left;"/></td>
                                         </tr>
                                         <tr>
                                             <td><label></label></td>
