@@ -126,7 +126,6 @@ public class PlateDAOImpl implements PlateDAO{
         theQuery.setParameter("picId", theIds);
 
         List<Pic> mainpics = theQuery.getResultList();
-        System.out.println(mainpics);
         return mainpics;
     }
 
@@ -151,6 +150,32 @@ public class PlateDAOImpl implements PlateDAO{
         theQuery =currentSession.createQuery("from Plate order by date DESC", Plate.class);
         theQuery.setMaxResults(5);
 
+        return theQuery.getResultList();
+    }
+
+    @Override
+    public List<Plate> contentsearch(String what, String contents) {
+
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        Query theQuery = null;
+
+        System.out.println(what);
+        System.out.println("kind");
+        if(what.equals("kind")) {
+            theQuery = currentSession.createQuery("from Plate where kind like :content ", Plate.class);
+        }
+        else if (what.equals("main_text")) {
+            theQuery = currentSession.createQuery("from Plate where main_text like :content ", Plate.class);
+        }
+        else if (what.equals("kind_think")) {
+            theQuery = currentSession.createQuery("from Plate where kind_think like :content ", Plate.class);
+        }
+        else  {
+            theQuery = currentSession.createQuery("from Plate where intro like :content ", Plate.class);
+        }
+        theQuery.setParameter("content", "%" + contents + "%");
+        System.out.println(theQuery.getResultList());
         return theQuery.getResultList();
     }
 

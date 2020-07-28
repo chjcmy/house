@@ -275,7 +275,7 @@
 
 /* 컨텐크 영역 */
 .column {
-    padding: 15px;
+    padding: 30px;
     border-bottom: 1px solid #dbdbdb;
 }
 
@@ -302,6 +302,16 @@
 }
 
 .column.col4 {}
+
+div #searchright {
+
+    float: right;
+}
+
+div #searchright input[type=submit] {
+    font-size:10pt;
+    color: #6f482b;
+}
 
 .column.col5 {}
 

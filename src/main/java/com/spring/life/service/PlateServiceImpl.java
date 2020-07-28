@@ -70,5 +70,11 @@ public class PlateServiceImpl implements PlateService{
             return plateDAO.leftlist();
     }
 
+    @Override
+    @Transactional
+    public List<Plate> getSearch(String what, String contents) {
+        return plateDAO.contentsearch(what, contents);
+    }
+
 
 }

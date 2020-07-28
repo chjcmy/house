@@ -154,4 +154,28 @@ public class PlateController {
         return "mainText";
     }
 
+    @GetMapping("/search")
+    public ModelAndView searchMains(@RequestParam(required = false) Integer page , @RequestParam("what") String what, @RequestParam("contents") String contents) {
+
+        ModelAndView modelAndView = new ModelAndView("table");
+        // get customers from the dao
+        List<Plate> thePlates = plateService.getSearch(what, contents);
+
+        PagedListHolder<Plate> pagedListHolder = new PagedListHolder<>(thePlates);
+        pagedListHolder.setPageSize(10);
+        modelAndView.addObject("maxPages", pagedListHolder.getPageCount());
+
+        if (page == null || page < 1 || page > pagedListHolder.getPageCount()) page = 1;
+
+        modelAndView.addObject("page", page);
+        if (page == null || page < 1 || page > pagedListHolder.getPageCount()) {
+            pagedListHolder.setPage(0);
+            modelAndView.addObject("plates", pagedListHolder.getPageList());
+        } else if (page <= pagedListHolder.getPageCount()) {
+            pagedListHolder.setPage(page - 1);
+            modelAndView.addObject("plates", pagedListHolder.getPageList());
+        }
+        return modelAndView;
+    }
+
 }

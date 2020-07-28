@@ -151,6 +151,19 @@
                                     <a href='<c:out value="${next}" />' class="pn next">Next</a>
                                 </c:if>
                             </div>
+                                <div id ="searchright">
+                                <form:form action="/plate/search" method="GET">
+                                <select name = "what" >
+                                    <option value="kind">주제</option>
+                                    <option value="kind_think">소주제</option>
+                                    <option value="intro">타이틀</option>
+                                    <option value="main_text">내용</option>
+                                </select>
+                                <input type="text" name="contents" />
+
+                                <input id ="search" type="submit" value="Search" />
+                                </form:form>
+                                </div>
                 </article>
             </section>
             <jsp:include page="part/right_side.jsp"/>

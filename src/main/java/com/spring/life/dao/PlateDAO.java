@@ -23,4 +23,6 @@ public interface PlateDAO {
     List<Plate> selectlist(String id);
 
     List<Plate> leftlist();
+
+    List<Plate> contentsearch(String what, String contents);
 }

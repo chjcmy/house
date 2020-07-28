@@ -24,4 +24,6 @@ public interface PlateService {
     List<Plate> selectlist(String id);
 
     List<Plate> leftlist();
+
+    List<Plate> getSearch(String what, String contents);
 }
